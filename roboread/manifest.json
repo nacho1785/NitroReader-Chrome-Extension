@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Efficient Reading",
+  "version": "1.0",
+  "description": "A Chrome extension that helps people read texts faster by highlighting parts of words.",
+  "permissions": ["contextMenus"],
+  "action": {
+    "default_icon": {
+      "48": "./media/roboread48.png",
+      "128": "./media/roboread128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "icons": {
+    "48": "./media/roboread48.png",
+    "128": "./media/roboread128.png"
+  },
+  "content_security_policy": {
+    "extension_pages": "default-src 'none'; style-src 'self'; script-src 'self'; img-src 'self';"
+  }
+}
